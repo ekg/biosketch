@@ -1,0 +1,190 @@
+%!TEX TS-program = xelatex
+\documentclass{nihbiosketch}
+
+% \usepackage{draftwatermark}  % delete this in your document!
+% \SetWatermarkText{Erik Garrison UCSC}    % delete this in your document!
+% \SetWatermarkLightness{0.9}  % delete this in your document!
+
+\usepackage{mathpazo} % add possibly `sc` and `osf` options
+\usepackage{eulervm}
+
+\usepackage{pifont}
+
+\usepackage[dvipsnames]{xcolor}
+
+\pagestyle{myheadings}
+\pagenumbering{gobble}
+%\input{../version}
+% \markright{{\color{gray}\tiny \hfill\VERSION~(\today)~~}}
+\newcommand{\journal}[1]{{\bf \textcolor{gray}{#1}}}
+\newcommand{\hijournal}[1]{{\bf \textcolor{gray}{\uline{#1}}}}
+
+% \renewcommand{\labelitemiii}{$\diamond$}
+
+\newcommand{\course}{
+  \emph{Advanced bioinformatics: data
+    mining~\&~data integration for Life Sciences}}
+
+%------------------------------------------------------------------------------
+
+\name{\uline{Garrison}, Erik}
+\eracommons{EGARRISON}
+\position{Postdoctoral Fellow}
+
+\begin{document}
+%------------------------------------------------------------------------------
+
+\begin{education}
+  Harvard University & A.B. & 05/2006 & Social Science \\
+  Cambridge University & Ph.D. & 01/2019 & Genomics \\
+\end{education}
+
+\section{Personal Statement}
+
+\begin{statement}
+
+  
+I build scalable computational systems to infer genomes from DNA sequencing data. My work on this topic began with the development of Bayesian methods to detect and genotype genomic variants, with application of these methods to the thousands of human genomes cataloged in the 1000 Genomes Project. Lessons learned in that effort guided me to work on unbiased methods for genome inference based on graphical models of pangenomes. In these, the genome is encoded in a graph that may represent a population sample of individuals from the same species, a metagenome, the diploid genome of a single individual, or any other useful collection of genomic sequence information, including those made from genomes of different species. With help from collaborators, I have shown that this approach provides more accurate alignment of reads when it is possible to construct a high-quality pangenome. We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants). I am currently working to improve the efficiency of related approaches, and exploring the relationship between the genome assembly and pangenome construction problems. I am part of a project to create an Australian aboriginal pangenome, with the objective of improving clinical inference for these underrepresented groups. I am funded to develop privacy preserving variation graphs, which will support the sharing of genomic information from private sources without risking patient privacy. I will be part of the leadership of the pangenomics working group in the newly-formed Human Pangenome Reference Consortium, where I will scale my approaches to help build a pangenome from hundreds of high quality human genome assemblies.
+
+  
+% 4 general references related to application
+
+\begin{enumerate}[label=\alph*.]
+
+\item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949
+
+\item 1000 Genomes Project Consortium et al. \emph{A map of human genome variation from population-scale sequencing}. \hijournal{Nature}, 467(7319):1061, 2010. PMCID: PMC3042601
+
+\item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
+
+\item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
+
+
+\end{enumerate}
+
+\end{statement}
+
+%------------------------------------------------------------------------------
+\section{Positions and Honors}
+
+\subsection*{Professional Experience}
+\begin{datetbl}
+2019--now & Postdoctoral fellow with Benedict Paten, University of California, Santa Cruz, USA \\
+2014--2018 & PhD student with Professor Richard Durbin, Wellcome Sanger Institute, UK \\
+2015--2018 & Contractor, DNAnexus Inc., San Francisco, CA, USA \\
+2010--2014 & Research scientist with Gabor Marth, Boston College, USA \\
+2009-- & Contractor, The Echonest, Somerville, MA, USA \\
+2008--2009 & Software Engineer, One Laptop Per Child, Cambridge, MA, USA \\
+2006--2008 & Contractor, George Church lab, Harvard Medical School, Boston, MA, USA \\
+2006--2007 & Research assistant, National Bureau of Economic Research, Cambridge, MA, USA \\
+2005-- & Research assistant, Harvard Kennedy School of Government, Cambridge, MA, USA \\
+\end{datetbl}
+
+%\pagebreak
+
+%------------------------------------------------------------------------------
+
+\section{Contribution to Science}
+
+\begin{enumerate}
+
+\item Haplotype-based genetic variant detection
+  
+In resequencing, we align reads from one or many new genomes to a reference genome, then use the joint information available in this data to infer the genotype of the resequenced genomes at every position in the reference. A core problem in this process is variant calling, in which candidate alleles are discovered in the collection of reads and genotypes are estimated for each sample under consideration. Early work on this topic focused on the detection of single base changes from the reference using disaggregated base observations. This approach proved error-prone and is fundamentally unable to accurately detect indels and complex small variation due to the problem of overlapping variants. In freebayes, I implemented a haplotype-based approach that provides a coherent local description of variation in the reads at a given locus, irrespective of allele type. It produces variant calls over local haplotypes, rather than point-wise alleles. Since its introduction, this method has seen increasing use in the biological community. Due to the configurability and minimal assumptions made by the method, it is particularly useful in unusual genomic contexts that are underserved by methods adapted to the low diversity setting found in humans. It has been applied to understand the genesis of a Cholera outbreak in Haiti, and to an exobiological study of bacterial isolates from the International Space Station. It is used to call genotypes in clinical genomics, run realtime in a rapid DNA sequencing device, and applied to the genome assembly polishing problem. Through my support and training of users of this method, I have learned about the whole breadth of biology. My work on this topic demonstrated the fundamental problem of resequencing against a linear reference model, and motivated my work on variation graphs. Freebayes has supported thousands of studies (73,000 hits on Google as of Nov 11, 2019), and a preprint documenting its basic Bayesian model has been cited 1204 times (Erik Garrison and Gabor Marth. Haplotype-based variant detection from short-read sequencing. arXiv:1207.3907, 2012, \url{https://arxiv.org/abs/1207.3907}). I additionally supported the development of an optimized resequencing pipeline based on freebayes:
+
+  \begin{enumerate} % bio1
+
+\item Colby Chiang, Ryan M Layer, Gregory G Faust, Michael R Lindberg, David B Rose, \textsc{Erik P Garrison}, Gabor T Marth, Aaron R Quinlan, and Ira M Hall. \emph{SpeedSeq: ultra-fast personal genome analysis and interpretation}. \hijournal{Nature Methods}, 12(10):966, 2015. PMCID: PMC4589466
+
+  \end{enumerate}
+
+
+\item Integration of a human pangenome in the 1000 Genomes Project
+
+  The 1000 Genomes Project explored the scope of human genome variation by resequencing approximately 2500 human genomes from 25 diverse world populations. This work engaged a large community of researchers who were developing methods to work with the low-cost, short read sequencing data around which the project was based. I worked with the project analysis group to develop a strategy for the integration of results from dozens of variant calling methods and related data sources, resulting in a phased collection of genomes that has since served the role of a human pangenome reference to the research community. I applied the variant calling techniques I developed in this process, and explored graph based alignment methods for the resolution of complex variation in the final project release, which I produced under the guidance of the analysis group and in collaboration with researchers developing novel imputation and phasing methods for complex variation. I have guided the application of the integration approach that we developed to other similar problems, including the determination of germline variation in the PanCancer Analysis of Whole Genomes project. This experience taught me a great deal about the complexity of establishing high-quality data resources, and it made me intimately aware of the pitfalls of resequencing against a linear reference genome, further motivating my work on pangenomic reference systems. While participating in this project, I supported numerous related studies that examined selection, demography, structural variation, transposable elements, and supported the development of high-performance alignment and phasing techniques capable of efficiently operating on thousands of human genomes. In later work, I have guided others in the application of similar techniques to the study of African genomes (in the Uganda genome project) and cancer genomics (Pan-Cancer analysis of whole genomes). I will also participate in the newly formed Human Pangenome Project, where we hope to further expand the concepts from the 1000 Genomes to fully-assembled genomes from diverse populations.
+
+  \begin{enumerate} % bio2
+
+  \item 1000 Genomes Project Consortium et al. \emph{A map of human genome variation from population-scale sequencing}. \hijournal{Nature}, 467(7319):1061, 2010. PMCID: PMC3042601
+
+  \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
+
+  \item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
+
+  \end{enumerate}
+
+
+\item Development of a graph-based framework for pangenomic analysis and genome inference
+
+  Variation graphs are sequence graphs with embedded paths (or walks) that describe sequences or genomes of interest. The graphical model provides information about relationship and variation, while the embedded paths provide identity, coordinates, and a mapping between the graphical model and linear reference genomes embedded in it. During my PhD, I have developed efficient algorithms and thrifty data structures that allow these graphs to be used as genomic reference systems at the scale of large eukaryotic genomes, or in the context of topological complexity typical of assembly graphs. Along with numerous collaborators that are part of the VG project, I have shown that variation graphs built from human genomes can improve read mapping performance, and that the best performance occurs when the variation in the graph is a good match for that found in a newly sequenced individual. Our method, the variation graph toolkit VG, provides a reference implementation for the set of tools required to use graphical pangenomic data models in all stages of genome analysis.
+
+My PhD thesis explores applications of VG to a wide array of biological contexts, including standard resequencing, structural variation (SV) detection, ancient DNA, ChIP-Seq analysis, RNA expression profiling, metagenomics, and pangenomics. This diversity of applications is possible due to VG’s ability to use any sequence graph as a reference system, including those produced by resequencing and variant calling, genome alignment, or assembly algorithms. In the context of small variation, I demonstrate that VG can completely remove reference bias for variants in the graph, allowing equal numbers of reads to map to both alleles at heterozygous loci in real samples, regardless of allele length. I show that VG can detect SVs directly in alignment, and that this produces a significant improvement in alignment performance relative the use of a linear reference. Through simulation, I verify that variation aware mapping is more accurate than alignment to a linear reference, and that the overall performance of alignment is not substantially slower than standard sensitive linear genome mappers.
+
+This toolset has provided a common framework around which collaborators have nucleated numerous related explorations. We have established a generic method for the determination of genetic sites that is applicable to any kind of graph structure, which provides a sound basis for genotype and likelihood spaces over sequence data sets. We have developed data structures that provide efficient compression of large numbers of genomes expressed as paths in variation graphs, and are exploring algorithms that enable the use of these haplotype sets in the process of read mapping, variant detection, and genome assembly.
+
+In further work, I am exploring the development of linked data techniques that allow us to directly annotate pieces of a pangenome graph as part of a semantic web database. Thes should allow us to integrate phenotypic information and the sequence graph model. I aim to provide free software to the research and clinical community. I am strongly committed to working in the open, sharing my results, and providing reproducible software tools to allow others to replicate and generalize my analyses to new domains and applications.
+
+  \begin{enumerate} % bio3
+
+  \item Adam M Novak, \textsc{Erik Garrison}, and Benedict Paten. \emph{A graph extension of the positional burrows–wheeler transform and its applications}. \hijournal{Algorithms for Molecular Biology}, 12(1):18, 2017.
+
+  \item Shilpa Garg, Mikko Rautiainen, Adam M Novak, \textsc{Erik Garrison}, Richard Durbin, and Tobias Marschall. \emph{A graph-based approach to diploid genome assembly}. \hijournal{Bioinformatics}, 34(13):i105–i114, 2018. PMCID: PMC5505026
+
+  \item Benedict Paten, Jordan M Eizenga, Yohei M Rosen, Adam M Novak, \textsc{Erik Garrison}, and Glenn Hickey. \emph{Superbubbles, ultrabubbles, and cacti}. \hijournal{Journal of Computational Biology}, 25(7):649–663, 2018. PMCID: PMC6067107
+
+  \item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949
+
+  \end{enumerate}
+
+\end{enumerate}
+
+\subsection*{Complete List of Published Work}
+
+\begin{datetbl}
+  Code & \url{https://github.com/ekg} \\
+  Papers & Google Scholar [Erik Garrison]~{\bf 25660} citations (June 2020) \url{https://scholar.google.com/citations?user=d5TKoncAAAAJ}
+\end{datetbl}
+
+
+%------------------------------------------------------------------------------
+
+\section{Research Support}
+
+\subsection*{Ongoing Research Support}
+
+\begin{datetbl}
+  2020--2023 & U01HG010961 (H. Li and B. Paten) National Human Genome Research Institute, National Institutes of Health. The construction and utility of reference pan-genome graphs.
+  We provide systems to support the Human Pangenome Reference Consortium's effort to build unified representations of 300 fully-assembled human genomes.
+  Role: coinvestigator
+  \\
+  2020 & nlnet foundation NGI0 Discovery Fund, Privacy-preserving variation graphs \url{https://nlnet.nl/project/VariationGraph/}.
+  Design and implementation of methods to build variation graph models that preserve the privacy of the genomes from which they are built.
+  Simultaneously, we are exploring extensions of this approach to mobility data for use in epidemic surveillance.
+  Role: principal investigator
+\end{datetbl}
+
+% \grantinfo{P30DA044223-01}{ (Saba \& Williams (MPIs))}{07/15/2017–06/30/2022} {Overall NIDA Core ‘Center
+%   of Excellence” in Transcriptomics, Systems Genetics and the
+%   Addictome} {Genomic and computations support to NIDA research teams
+%   using rat models to study addiction. Creation of open access tools
+%   for genomic and genetic analysis with a focus on rat research
+%   communities.}  {Role:co-investigator}
+
+% \bigskip
+
+% \grantinfo{R01GM123489}{Sen \& Williams, MPIs)}{04/15/2017 – 03/31/2021}
+%           {NIH/NIGMS}
+%           {A Unified High Performance Web Service for Systems Genetics and Precision Medicine
+% This grant funds major software enhancements of GeneNetwork version}
+% {Role: Coinvestigator}
+
+\subsection*{Completed Research Support}
+
+\begin{datetbl}
+2015--2019 & DT06172015 (D. Haussler) W. M. Keck Foundation. Human Genome Variation Map. We built a comprehensive new representation of human genome variation, the Human Genome Variation Map (HGVM)—a critical new resource to be made available to the scientific and medical communities.  Role: coinvestigator.
+
+%  2018 & {Digital Science Award} Special Blockchain Technology Catalyst Grant with Alexander Garcia Castro (BASF). \$24 K matched by \$60 K for software development from the GeneNetwork project as chief scientific officer % \href{https://www.digital-science.com/blog/news/digital-science-award-special-blockchain-technology-catalyst-grants/}{\ding{234}} \\ % , 20\% effort \\
+
+\end{datetbl}
+
+\end{document}
