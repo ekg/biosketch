@@ -10,6 +10,9 @@
 
 \usepackage{pifont}
 
+%\usepackage{palatino} % Palatino font
+%\linespread{1.05} % A little extra line spread is better for the Palatino font
+
 \usepackage[dvipsnames]{xcolor}
 
 \pagestyle{myheadings}
@@ -43,8 +46,33 @@
 
 \begin{statement}
 
-  
-I build scalable computational systems to infer genomes from DNA sequencing data. My work on this topic began with the development of Bayesian methods to detect and genotype genomic variants, with application of these methods to the thousands of human genomes cataloged in the 1000 Genomes Project. Lessons learned in that effort guided me to work on unbiased methods for genome inference based on graphical models of pangenomes. In these, the genome is encoded in a graph that may represent a population sample of individuals from the same species, a metagenome, the diploid genome of a single individual, or any other useful collection of genomic sequence information, including those made from genomes of different species. With help from collaborators, I have shown that this approach provides more accurate alignment of reads when it is possible to construct a high-quality pangenome. We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants). I am currently working to improve the efficiency of related approaches, and exploring the relationship between the genome assembly and pangenome construction problems. I am part of a project to create an Australian aboriginal pangenome, with the objective of improving clinical inference for these underrepresented groups. I am funded to develop privacy preserving variation graphs, which will support the sharing of genomic information from private sources without risking patient privacy. I will be part of the leadership of the pangenomics working group in the newly-formed Human Pangenome Reference Consortium, where I will scale my approaches to help build a pangenome from hundreds of high quality human genome assemblies.
+  %I build computational systems to assemble genomes and relate populations of genomes.
+My research explores genome structure, diversity, and evolution using tools that establish sequence-level relationships between many genomes.
+These \emph{pangenomic methods} provide a unified, graphical approach to comparative and population genomics.
+They also support common basic bioinformatics applications like resequencing and variant calling, where they improve our resolution of variable regions of the genome and reduce our bias to all kinds of variation.
+My work anticipates that in the near future, genome assembly will be a solved problem, and instead we will face a new challenge of understanding and interpreting large collections genomes and their relationships.
+%I began my scientific journey as a research assistant in sociology and economics.
+%To enable a study of policy effects on Wikipedia article creation, I built a streaming data processing system capable of quickly processing the tens of terabytes of text data in the history of the website.
+Generally, I have worked on the topic of \emph{genome inference}.
+My work on this topic began with the development of Bayesian methods to detect and genotype genomic variants, with application of these methods to the thousands of human genomes cataloged in the 1000 Genomes Project.
+Lessons learned in that effort guided me to work on unbiased methods for genome inference based on graphical models of pangenomes.
+In these, the genome is encoded in a graph that may represent a population sample of individuals from the same species, a metagenome, the diploid genome of a single individual, or any other useful collection of genomic sequence information, including those made from genomes of different species.
+Working as part of a world-spanning collaboration in computational pangenomics, I have helped to demonstrate the utility of this approach for basic bioinformatics analyses like read alignment and genotyping.
+The addition of information about population variation to the reference system improves our resolution of genetic variants of all scales.
+As the cost of assembling genomes dropped, combinations of multiple sequencing technologies enabled the semi-automated generation of reference-quality genomes for many species.
+Although I have not worked on assembly algorithms directly, I have supported genome assembly pipelines like that used by the Vertebrate Genomes Project, where I helped to apply haplotype-based variant detection methods for assembly polishing.
+These assemblies are the primary material of my current work, which focuses on the assembly of collections of genomes into \emph{pangenome graphs}.
+I am part of the leadership of the ``Pangenomes Working Group'' of the Human Pangenome Reference Consortium (HPRC).
+There, I have focused on building pangenome models from all-to-all alignment of genome sequences, in a manner that does not depend on any reference sequence or input order.
+When applied to the high-quality assemblies of the HPRC, this unbiased approach allows us to understand features of human genome variation that have never before been observed so directly.
+
+%We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants).
+
+
+%I am currently working to improve the efficiency of related approaches, and exploring the relationship between the genome assembly and pangenome construction problems.
+%I am part of a project to create an Australian aboriginal pangenome, with the objective of improving clinical inference for these underrepresented groups.
+%I am funded to develop privacy preserving variation graphs, which will support the sharing of genomic information from private sources without risking patient privacy.
+%I will be part of the leadership of the pangenomics working group in the newly-formed Human Pangenome Reference Consortium, where I will scale my approaches to help build a pangenome from hundreds of high quality human genome assemblies.
 
   
 % 4 general references related to application
@@ -53,12 +81,13 @@ I build scalable computational systems to infer genomes from DNA sequencing data
 
 \item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949
 
-\item 1000 Genomes Project Consortium et al. \emph{A map of human genome variation from population-scale sequencing}. \hijournal{Nature}, 467(7319):1061, 2010. PMCID: PMC3042601
-
 \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
 
 \item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
 
+\item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
+
+\item Arang Rhie, Shane A McCarthy, Olivier Fedrigo, Joana Damas et al. \emph{Towards complete and error-free genome assemblies of all vertebrate species}. \hijournal{Nature}, 592(7856):737, 2021.
 
 \end{enumerate}
 
@@ -69,7 +98,8 @@ I build scalable computational systems to infer genomes from DNA sequencing data
 
 \subsection*{Professional Experience}
 \begin{datetbl}
-2019--now & Postdoctoral fellow with Benedict Paten, University of California, Santa Cruz, USA \\
+2020--now  & Assistant Professor, University of Tennessee Health Science Center \\
+2019--2020 & Postdoctoral fellow with Benedict Paten, University of California, Santa Cruz, USA \\
 2014--2018 & PhD student with Professor Richard Durbin, Wellcome Sanger Institute, UK \\
 2015--2018 & Contractor, DNAnexus Inc., San Francisco, CA, USA \\
 2010--2014 & Research scientist with Gabor Marth, Boston College, USA \\
@@ -109,7 +139,7 @@ In resequencing, we align reads from one or many new genomes to a reference geno
 
   \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
 
-  \item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
+  \item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
 
   \end{enumerate}
 
@@ -126,7 +156,11 @@ In further work, I am exploring the development of linked data techniques that a
 
   \begin{enumerate} % bio3
 
-  \item Adam M Novak, \textsc{Erik Garrison}, and Benedict Paten. \emph{A graph extension of the positional burrows–wheeler transform and its applications}. \hijournal{Algorithms for Molecular Biology}, 12(1):18, 2017.
+    %  \item Adam M Novak, \textsc{Erik Garrison}, and Benedict Paten. \emph{A graph extension of the positional burrows–wheeler transform and its applications}. \hijournal{Algorithms for Molecular Biology}, 12(1):18, 2017.
+
+  \item Glenn Hickey, David Heller, Jean Monlong, Jonas A. Sibbesen, Jouni Sirén, Jordan Eizenga, Eric T. Dawson, \textsc{Erik Garrison}, Adam M. Novak and Benedict Paten. \emph{Genotyping structural variants in pangenome graphs using the vg toolkit}. \hijournal{Genome Biology}, 21(1), 2020. PMCID: PMC7017486
+
+  \item Jouni Sirén, \textsc{Erik Garrison}, Adam M Novak, Benedict Paten, and Richard Durbin. \emph{Haplotype-aware graph indexes}. \hijournal{Bioinformatics}, 36(2):400, 2020. PMCID: PMC7223266
 
   \item Shilpa Garg, Mikko Rautiainen, Adam M Novak, \textsc{Erik Garrison}, Richard Durbin, and Tobias Marschall. \emph{A graph-based approach to diploid genome assembly}. \hijournal{Bioinformatics}, 34(13):i105–i114, 2018. PMCID: PMC5505026
 
