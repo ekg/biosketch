@@ -9,6 +9,16 @@
 \usepackage{eulervm}
 \usepackage{comment}
 \usepackage{pifont}
+\hypersetup{nolinks=true} % disable hyperlinks in citations
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+% A note on fonts: As of 2019, NIH allows Arial, Georgia, Helvetica, and Palatino Linotype. Georgia and Arial are commercial fonts so you will need to use XeLaTeX and have them installed on your machine to use them. Palatino & Helvetica are available as free LaTeX packages so select the one you want and comment out the other.
+\usepackage{palatino} % Palatino font
+\linespread{1.05} % A little extra line spread is better for the Palatino font
+%\usepackage{helvet} % Helvetica font
+\renewcommand*\familydefault{\sfdefault} % Use the sans serif version of the font
+
 
 %\usepackage{palatino} % Palatino font
 %\linespread{1.05} % A little extra line spread is better for the Palatino font
@@ -165,7 +175,7 @@ In further work, I am exploring the development of linked data techniques that a
 
   \item Shilpa Garg, Mikko Rautiainen, Adam M Novak, \textsc{Erik Garrison}, Richard Durbin, and Tobias Marschall. \emph{A graph-based approach to diploid genome assembly}. \hijournal{Bioinformatics}, 34(13):i105–i114, 2018. PMCID: PMC5505026
 
-  \item Benedict Paten, Jordan M Eizenga, Yohei M Rosen, Adam M Novak, \textsc{Erik Garrison}, and Glenn Hickey. \emph{Superbubbles, ultrabubbles, and cacti}. \hijournal{Journal of Computational Biology}, 25(7):649–663, 2018. PMCID: PMC6067107
+%  \item Benedict Paten, Jordan M Eizenga, Yohei M Rosen, Adam M Novak, \textsc{Erik Garrison}, and Glenn Hickey. \emph{Superbubbles, ultrabubbles, and cacti}. \hijournal{Journal of Computational Biology}, 25(7):649–663, 2018. PMCID: PMC6067107
 
   \item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949
 
