@@ -76,6 +76,7 @@ These assemblies are the primary material of my current work, which focuses on t
 I am part of the leadership of the ``Pangenomes Working Group'' of the Human Pangenome Reference Consortium (HPRC).
 There, I have focused on building pangenome models from all-to-all alignment of genome sequences, in a manner that does not depend on any reference sequence or input order.
 When applied to the high-quality assemblies of the HPRC, this unbiased approach allows us to understand features of human genome variation that have never before been observed so directly.
+%As an independent PI, I have focused strongly on the problem of pangenome graph construction, resulting in the first 
 
 %We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants).
 
@@ -181,6 +182,41 @@ In further work, I am exploring the development of linked data techniques that a
 
   \item Jouni Sir{\'e}n, Jean Monlong, Xian Chang, Adam Novak, Jordan Eizenga, Charles Markello, Jonas Sibbesen, Glenn Hickey, et al. \emph{Pangenomics enables genotyping of known structural variants in 5202 diverse genomes}. \hijournal{Science}, 374(6574):abg887, 2021. PMCID: PMC34914532
 
+  \end{enumerate}
+
+\item Methods to build and understand lossless, unbiased pangenome graphs
+
+  My work in on graph-based genome analysis demonstrated the feasibility of the approach, leading to a wave of subsequent research on this topic.
+  These tools, and new high-quality assemblies implied the need for methods to build pangenome graph reference systems.
+  Although several interesting approaches arose that can construct a variation graph (or similar) system, these methods manage to build these graphs only by using a guiding reference system to simplify the problem.
+  This perpetuates issues of reference bias that drove me to work on the problem in the first place.
+  In response, I have focused my work as an independent PI on establishing and applying methods to build pangenome variation graphs that are completely symmetric and unbiased with respect to all included genomes.
+  These methods are not only unbiased, but conceptually simpler for researchers to use than methods based around guide trees or progressive alignment to a reference.
+  To develop them, I have engaged with numerous genomics research communities focusing in both human, model, and non-model organisms, with species and clade targets spread across the tree of life.
+  %They are rapidly becoming standard methods across numerous 
+  %I have promulgated and supported the development of tools that allow
+
+  In support of this objective, I guided these works as senior author.
+  First, we provided the community with a deep review of all existing methodologies, yielding a technical synthesis that has served as a guide for researchers in the field.
+  Then, to work up to the problem of building and manipulating pangenome graphs for research tasks, I led the development of a software library and set of efficient data structures for representing pangenome graphs.
+  Finally, in the last year of full independence at UTHSC, I established a modular process to build and normalize pangenome graphs built from any kind of related input genomes, both within the same species or between species.
+  This method, the PanGenome Graph Builder (PGGB) is the first approach that breaks down the steps of graph construction into unique modules.
+  First, an alignment is made, and this is then converted into a graph.
+  Finally, the graph is normalized and can be interrogated by standard, generic methods that work on graphs using standard formats for the representation of assembly and variation graphs.
+  I envision this paradigm for whole genome sequence analysis as the foundation for a new kind of genome analysis that responds to current growing needs in bioinformatics.
+  Although PGGB is not yet in preprint, we have put forward two components---the ODGI toolkit used to manipulate and understand the graphs, and the seqwish unbiased graph builder.
+  I will continue to drive this work forward, working with diverse genomic research communities focused on a variety of model and non-model organisms.
+  As the problem of building the graphs closes, I will move my focus to downstream applications of these models that will for the first time let us consider \textit{all} variation in complete genome assemblies.
+  
+  \begin{enumerate}
+
+    \item Jordan M. Eizenga, Adam M. Novak, Jonas A. Sibbesen, Simon Heumos, Ali Ghaffaari, Glenn Hickey, Xian Chang, Josiah D Seaman, Robin Rounthwaite, Jana Ebler, Mikko Rautiainen, Shilpa Garg, Benedict Paten, Tobias Marschall, Jouni Sirén, and \textsc{Erik Garrison}. \emph{Pangenome graphs.} \hijournal{Annual review of genomics and human genetics} 21:139-162, 2020. PMCID: PMC7850124
+    
+  \item Jordan M. Eizenga, Adam M. Novak, Emily Kobayashi, Flavia Villani, Cecilia Cisar, Simon Heumos, Glenn Hickey, Vincenza Colonna, Benedict Paten, and \textsc{Erik Garrison}. \emph{Efficient dynamic variation graphs.} \hijournal{Bioinformatics} 36(21):5139-5144, 2021. PMCID: PMC8006571
+  
+  \item Andrea Guarracino, Simon Heumos, Sven Nahnsen, Pjotr Prins, and \textsc{Erik Garrison}. \emph{ODGI: understanding pangenome graphs.} \hijournal{bioRxiv} 2021.
+  
+  \item \textsc{Erik Garrison}, and Andrea Guarracino. \emph{Unbiased pangenome graphs.} \hijournal{bioRxiv} 2022.
   \end{enumerate}
 
 \end{enumerate}
