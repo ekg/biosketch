@@ -76,7 +76,7 @@ These assemblies are the primary material of my current work, which focuses on t
 I am part of the leadership of the ``Pangenomes Working Group'' of the Human Pangenome Reference Consortium (HPRC).
 There, I have focused on building pangenome models from all-to-all alignment of genome sequences, in a manner that does not depend on any reference sequence or input order.
 When applied to the high-quality assemblies of the HPRC, this unbiased approach allows us to understand features of human genome variation that have never before been observed so directly.
-%As an independent PI, I have focused strongly on the problem of pangenome graph construction, resulting in the first 
+%As an independent PI, I have focused strongly on the problem of pangenome graph construction, resulting in the first
 
 %We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants).
 
@@ -86,7 +86,7 @@ When applied to the high-quality assemblies of the HPRC, this unbiased approach 
 %I am funded to develop privacy preserving variation graphs, which will support the sharing of genomic information from private sources without risking patient privacy.
 %I will be part of the leadership of the pangenomics working group in the newly-formed Human Pangenome Reference Consortium, where I will scale my approaches to help build a pangenome from hundreds of high quality human genome assemblies.
 
-  
+
 % 4 general references related to application
 
 \begin{enumerate}[label=\alph*.]
@@ -131,7 +131,7 @@ When applied to the high-quality assemblies of the HPRC, this unbiased approach 
 \begin{enumerate}
 
 \item Haplotype-based genetic variant detection
-  
+
 In resequencing, we align reads from one or many new genomes to a reference genome, then use the joint information available in this data to infer the genotype of the resequenced genomes at every position in the reference. A core problem in this process is variant calling, in which candidate alleles are discovered in the collection of reads and genotypes are estimated for each sample under consideration. Early work on this topic focused on the detection of single base changes from the reference using disaggregated base observations. This approach proved error-prone and is fundamentally unable to accurately detect indels and complex small variation due to the problem of overlapping variants. In freebayes, I implemented a haplotype-based approach that provides a coherent local description of variation in the reads at a given locus, irrespective of allele type. It produces variant calls over local haplotypes, rather than point-wise alleles. Since its introduction, this method has seen increasing use in the biological community. Due to the configurability and minimal assumptions made by the method, it is particularly useful in unusual genomic contexts that are underserved by methods adapted to the low diversity setting found in humans. It has been applied to understand the genesis of a Cholera outbreak in Haiti, and to an exobiological study of bacterial isolates from the International Space Station. It is used to call genotypes in clinical genomics, run realtime in a rapid DNA sequencing device, and applied to the genome assembly polishing problem. Through my support and training of users of this method, I have learned about the whole breadth of biology. My work on this topic demonstrated the fundamental problem of resequencing against a linear reference model, and motivated my work on variation graphs. Freebayes has supported thousands of studies (73,000 hits on Google as of Nov 11, 2019), and a preprint documenting its basic Bayesian model has been cited 1204 times (Erik Garrison and Gabor Marth. Haplotype-based variant detection from short-read sequencing. arXiv:1207.3907, 2012, \url{https://arxiv.org/abs/1207.3907}). I additionally supported the development of an optimized resequencing pipeline based on freebayes:
 
   \begin{enumerate} % bio1
@@ -141,9 +141,9 @@ In resequencing, we align reads from one or many new genomes to a reference geno
   \end{enumerate}
 
 
-\item Integration of a human pangenome in the 1000 Genomes Project
+\item Integration of a human pangenome in the 1000 Genomes Project and Human Pangenome Reference Consortium
 
-  The 1000 Genomes Project explored the scope of human genome variation by resequencing approximately 2500 human genomes from 25 diverse world populations. This work engaged a large community of researchers who were developing methods to work with the low-cost, short read sequencing data around which the project was based. I worked with the project analysis group to develop a strategy for the integration of results from dozens of variant calling methods and related data sources, resulting in a phased collection of genomes that has since served the role of a human pangenome reference to the research community. I applied the variant calling techniques I developed in this process, and explored graph based alignment methods for the resolution of complex variation in the final project release, which I produced under the guidance of the analysis group and in collaboration with researchers developing novel imputation and phasing methods for complex variation. I have guided the application of the integration approach that we developed to other similar problems, including the determination of germline variation in the PanCancer Analysis of Whole Genomes project. This experience taught me a great deal about the complexity of establishing high-quality data resources, and it made me intimately aware of the pitfalls of resequencing against a linear reference genome, further motivating my work on pangenomic reference systems. While participating in this project, I supported numerous related studies that examined selection, demography, structural variation, transposable elements, and supported the development of high-performance alignment and phasing techniques capable of efficiently operating on thousands of human genomes. In later work, I have guided others in the application of similar techniques to the study of African genomes (in the Uganda genome project) and cancer genomics (Pan-Cancer analysis of whole genomes). I will also participate in the newly formed Human Pangenome Project, where we hope to further expand the concepts from the 1000 Genomes to fully-assembled genomes from diverse populations.
+  The 1000 Genomes Project explored the scope of human genome variation by resequencing approximately 2500 human genomes from 25 diverse world populations. This work engaged a large community of researchers who were developing methods to work with the low-cost, short read sequencing data around which the project was based. I worked with the project analysis group to develop a strategy for the integration of results from dozens of variant calling methods and related data sources, resulting in a phased collection of genomes that has since served the role of a human pangenome reference to the research community. I applied the variant calling techniques I developed in this process, and explored graph based alignment methods for the resolution of complex variation in the final project release, which I produced under the guidance of the analysis group and in collaboration with researchers developing novel imputation and phasing methods for complex variation. I have guided the application of the integration approach that we developed to other similar problems, including the determination of germline variation in the PanCancer Analysis of Whole Genomes project. This experience taught me a great deal about the complexity of establishing high-quality data resources, and it made me intimately aware of the pitfalls of resequencing against a linear reference genome, further motivating my work on pangenomic reference systems. While participating in this project, I supported numerous related studies that examined selection, demography, structural variation, transposable elements, and supported the development of high-performance alignment and phasing techniques capable of efficiently operating on thousands of human genomes. In later work, I have guided others in the application of similar techniques to the study of African genomes (in the Uganda genome project) and cancer genomics (Pan-Cancer analysis of whole genomes). Presently, I am a participant and working group chair in the Human Pangenome Reference Consortium. We have recently provided our first result: a pangenome built from 47 haplotype-resolved human genomes. I supported this work as corresponding author, and my group contributed the project's reference-free pangenome build.
 
   \begin{enumerate} % bio2
 
@@ -152,6 +152,8 @@ In resequencing, we align reads from one or many new genomes to a reference geno
   \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
 
   \item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
+
+  \item Human Pangenome Reference Consortium et al. \emph{A Draft Human Pangenome Reference.} \hijournal{bioRxiv} 2022.
 
   \end{enumerate}
 
@@ -193,7 +195,7 @@ In further work, I am exploring the development of linked data techniques that a
   In response, I have focused my work as an independent PI on establishing and applying methods to build pangenome variation graphs that are completely symmetric and unbiased with respect to all included genomes.
   These methods are not only unbiased, but conceptually simpler for researchers to use than methods based around guide trees or progressive alignment to a reference.
   To develop them, I have engaged with numerous genomics research communities focusing in both human, model, and non-model organisms, with species and clade targets spread across the tree of life.
-  %They are rapidly becoming standard methods across numerous 
+  %They are rapidly becoming standard methods across numerous
   %I have promulgated and supported the development of tools that allow
 
   In support of this objective, I guided these works as senior author.
@@ -207,15 +209,15 @@ In further work, I am exploring the development of linked data techniques that a
   Although PGGB is not yet in preprint, we have put forward two components---the ODGI toolkit used to manipulate and understand the graphs, and the seqwish unbiased graph builder.
   I will continue to drive this work forward, working with diverse genomic research communities focused on a variety of model and non-model organisms.
   As the problem of building the graphs closes, I will move my focus to downstream applications of these models that will for the first time let us consider \textit{all} variation in complete genome assemblies.
-  
+
   \begin{enumerate}
 
     \item Jordan M. Eizenga, Adam M. Novak, Jonas A. Sibbesen, Simon Heumos, Ali Ghaffaari, Glenn Hickey, Xian Chang, Josiah D Seaman, Robin Rounthwaite, Jana Ebler, Mikko Rautiainen, Shilpa Garg, Benedict Paten, Tobias Marschall, Jouni Sirén, and \textsc{Erik Garrison}. \emph{Pangenome graphs.} \hijournal{Annual review of genomics and human genetics} 21:139-162, 2020. PMCID: PMC7850124
-    
+
   \item Jordan M. Eizenga, Adam M. Novak, Emily Kobayashi, Flavia Villani, Cecilia Cisar, Simon Heumos, Glenn Hickey, Vincenza Colonna, Benedict Paten, and \textsc{Erik Garrison}. \emph{Efficient dynamic variation graphs.} \hijournal{Bioinformatics} 36(21):5139-5144, 2021. PMCID: PMC8006571
-  
+
   \item Andrea Guarracino, Simon Heumos, Sven Nahnsen, Pjotr Prins, and \textsc{Erik Garrison}. \emph{ODGI: understanding pangenome graphs.} \hijournal{bioRxiv} 2021.
-  
+
   \item \textsc{Erik Garrison}, and Andrea Guarracino. \emph{Unbiased pangenome graphs.} \hijournal{bioRxiv} 2022.
   \end{enumerate}
 
