@@ -72,9 +72,9 @@ The addition of information about population variation to the reference system i
 As the cost of assembling genomes dropped, combinations of multiple sequencing technologies enabled the semi-automated generation of reference-quality genomes for many species.
 Although I have not worked on assembly algorithms directly, I have supported genome assembly pipelines like that used by the Vertebrate Genomes Project, where I helped to apply haplotype-based variant detection methods for assembly polishing.
 These assemblies are the primary material of my current work, which focuses on the assembly of collections of genomes into \emph{pangenome graphs}.
-I am part of the leadership of the ``Pangenomes Working Group'' of the Human Pangenome Reference Consortium (HPRC).
+I am part of the leadership of the ``Pangenomes Working Group'' of the Human Pangenome Reference Consortium (HPRC), resulting in a
 There, I have focused on building pangenome models from all-to-all alignment of genome sequences, in a manner that does not depend on any reference sequence or input order.
-When applied to the high-quality assemblies of the HPRC, this unbiased approach allows us to understand features of human genome variation that have never before been observed so directly.
+When applied to the high-quality assemblies of the HPRC, this unbiased approach allows us to understand features of human genome variation that have never before been observed so directly, and we have used this to elucidate the nature of long-hypothesized recombination between heterologous human acrocentric chromosomes.
 %As an independent PI, I have focused strongly on the problem of pangenome graph construction, resulting in the first
 
 %We find that we can improve our resolution of variants of all scales, both small (as in SNPs and indels) and large (structural variants).
@@ -94,11 +94,15 @@ When applied to the high-quality assemblies of the HPRC, this unbiased approach 
 
 %\item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
 
-\item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
+%\item 1000 Genomes Project Consortium et al. \emph{A global reference for human genetic variation}. \hijournal{Nature}, 526(7571):68, 2015. PMCID: PMC4750478
 
-\item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
+%\item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
 
 \item Arang Rhie, Shane A McCarthy, Olivier Fedrigo, Joana Damas et al. \emph{Towards complete and error-free genome assemblies of all vertebrate species}. \hijournal{Nature}, 592(7856):737, 2021.
+
+\item Wen-Wei Liao, Mobin Asri, Jana Ebler, Daniel Doerr et al. \emph{A Draft Human Pangenome Reference}. \hijournal{bioRxiv} DOI 10.1101/2022.07.09.499321, 2022.
+
+\item Andrea Guarracino, Silvia Buonaiuto, Leonardo Gomes de Lima et al. \emph{Recombination between heterologous human acrocentric chromosomes}. \hijournal{bioRxiv} DOI 10.1101/2022.08.15.504037, 2023.
 
 \end{enumerate}
 
@@ -131,11 +135,13 @@ When applied to the high-quality assemblies of the HPRC, this unbiased approach 
 
 \item Haplotype-based genetic variant detection
 
-In resequencing, we align reads from one or many new genomes to a reference genome, then use the joint information available in this data to infer the genotype of the resequenced genomes at every position in the reference. A core problem in this process is variant calling, in which candidate alleles are discovered in the collection of reads and genotypes are estimated for each sample under consideration. Early work on this topic focused on the detection of single base changes from the reference using disaggregated base observations. This approach proved error-prone and is fundamentally unable to accurately detect indels and complex small variation due to the problem of overlapping variants. In freebayes, I implemented a haplotype-based approach that provides a coherent local description of variation in the reads at a given locus, irrespective of allele type. It produces variant calls over local haplotypes, rather than point-wise alleles. Since its introduction, this method has seen increasing use in the biological community. Due to the configurability and minimal assumptions made by the method, it is particularly useful in unusual genomic contexts that are underserved by methods adapted to the low diversity setting found in humans. It has been applied to understand the genesis of a Cholera outbreak in Haiti, and to an exobiological study of bacterial isolates from the International Space Station. It is used to call genotypes in clinical genomics, run realtime in a rapid DNA sequencing device, and applied to the genome assembly polishing problem. Through my support and training of users of this method, I have learned about the whole breadth of biology. My work on this topic demonstrated the fundamental problem of resequencing against a linear reference model, and motivated my work on variation graphs. Freebayes has supported thousands of studies (73,000 hits on Google as of Nov 11, 2019), and a preprint documenting its basic Bayesian model has been cited 1204 times (Erik Garrison and Gabor Marth. Haplotype-based variant detection from short-read sequencing. arXiv:1207.3907, 2012, \url{https://arxiv.org/abs/1207.3907}). I additionally supported the development of an optimized resequencing pipeline based on freebayes:
+In resequencing, we align reads from one or many new genomes to a reference genome, then use the joint information available in this data to infer the genotype of the resequenced genomes at every position in the reference. A core problem in this process is variant calling, in which candidate alleles are discovered in the collection of reads and genotypes are estimated for each sample under consideration. Early work on this topic focused on the detection of single base changes from the reference using disaggregated base observations. This approach proved error-prone and is fundamentally unable to accurately detect indels and complex small variation due to the problem of overlapping variants. In freebayes, I implemented a haplotype-based approach that provides a coherent local description of variation in the reads at a given locus, irrespective of allele type. It produces variant calls over local haplotypes, rather than point-wise alleles. Since its introduction, this method has seen increasing use in the biological community. Due to the configurability and minimal assumptions made by the method, it is particularly useful in unusual genomic contexts that are underserved by methods adapted to the low diversity setting found in humans. It has been applied to understand the genesis of a Cholera outbreak in Haiti, and to an exobiological study of bacterial isolates from the International Space Station. It is used to call genotypes in clinical genomics, run realtime in a rapid DNA sequencing device, and applied to the genome assembly polishing problem. Through my support and training of users of this method, I have learned about the whole breadth of biology. My work on this topic demonstrated the fundamental problem of resequencing against a linear reference model, and motivated my work on variation graphs. Freebayes has supported thousands of studies (213,000 hits on Google as of Jan 26, 2023), and a preprint documenting its underlying model has been cited 3242 times.
 
   \begin{enumerate} % bio1
 
-\item Colby Chiang, Ryan M Layer, Gregory G Faust, Michael R Lindberg, David B Rose, \textsc{Erik P Garrison}, Gabor T Marth, Aaron R Quinlan, and Ira M Hall. \emph{SpeedSeq: ultra-fast personal genome analysis and interpretation}. \hijournal{Nature Methods}, 12(10):966, 2015. PMCID: PMC4589466
+  \item Colby Chiang, Ryan M Layer, Gregory G Faust, Michael R Lindberg, David B Rose, \textsc{Erik Garrison}, Gabor T Marth, Aaron R Quinlan, and Ira M Hall. \emph{SpeedSeq: ultra-fast personal genome analysis and interpretation}. \hijournal{Nature Methods}, 12(10):966, 2015. PMCID: PMC4589466.
+
+  \item \textsc{Erik Garrison} and Gabor Marth \emph{Haplotype-based variant detection from short-read sequencing}. \hijournal{arXiv}:1207.3907, 2012.
 
   \end{enumerate}
 
@@ -146,13 +152,13 @@ In resequencing, we align reads from one or many new genomes to a reference geno
 
   \begin{enumerate} % bio2
 
-  \item 1000 Genomes Project Consortium et al. \emph{A map of human genome variation from population-scale sequencing}. \hijournal{Nature}, 467(7319):1061, 2010. PMCID: PMC3042601
+  \item 1000 Genomes Project Consortium et al. \emph{A map of human genome variation from population-scale sequencing}. \hijournal{Nature}, 467(7319):1061, 2010. PMCID: PMC3042601.
 
-  \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066
+  \item 1000 Genomes Project Consortium et al. \emph{An integrated map of genetic variation from 1,092 human genomes}. \hijournal{Nature}, 491(7422):56, 2012. PMCID: PMC3498066.
 
-  \item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611
+  \item Peter Sudmant, Tobias Rausch, Eugene J Gardner, Bob Handsaker et al. \emph{An integrated map of structural variation in 2,504 human genomes}. \hijournal{Nature}, 526(7571):75, 2015. PMCID: PMC4617611.
 
-  \item Human Pangenome Reference Consortium et al. \emph{A Draft Human Pangenome Reference.} \hijournal{bioRxiv} 2022.
+  \item Wen-Wei Liao, Mobin Asri, Jana Ebler, Daniel Doerr et al. \emph{A Draft Human Pangenome Reference}. \hijournal{bioRxiv} DOI 10.1101/2022.07.09.499321, 2022.
 
   \end{enumerate}
 
@@ -171,17 +177,17 @@ In further work, I am exploring the development of linked data techniques that a
 
     %  \item Adam M Novak, \textsc{Erik Garrison}, and Benedict Paten. \emph{A graph extension of the positional burrows–wheeler transform and its applications}. \hijournal{Algorithms for Molecular Biology}, 12(1):18, 2017.
 
-  \item Glenn Hickey, David Heller, Jean Monlong, Jonas A. Sibbesen, Jouni Sirén, Jordan Eizenga, Eric T. Dawson, \textsc{Erik Garrison}, Adam M. Novak and Benedict Paten. \emph{Genotyping structural variants in pangenome graphs using the vg toolkit}. \hijournal{Genome Biology}, 21(1), 2020. PMCID: PMC7017486
+  \item Glenn Hickey, David Heller, Jean Monlong, Jonas A. Sibbesen, Jouni Sirén, Jordan Eizenga, Eric T. Dawson, \textsc{Erik Garrison}, Adam M. Novak and Benedict Paten. \emph{Genotyping structural variants in pangenome graphs using the vg toolkit}. \hijournal{Genome Biology}, 21(1), 2020. PMCID: PMC7017486.
 
-  \item Jouni Sirén, \textsc{Erik Garrison}, Adam M Novak, Benedict Paten, and Richard Durbin. \emph{Haplotype-aware graph indexes}. \hijournal{Bioinformatics}, 36(2):400, 2019. PMCID: PMC7223266
+  \item Jouni Sirén, \textsc{Erik Garrison}, Adam M Novak, Benedict Paten, and Richard Durbin. \emph{Haplotype-aware graph indexes}. \hijournal{Bioinformatics}, 36(2):400, 2019. PMCID: PMC7223266.
 
 %  \item Shilpa Garg, Mikko Rautiainen, Adam M Novak, \textsc{Erik Garrison}, Richard Durbin, and Tobias Marschall. \emph{A graph-based approach to diploid genome assembly}. \hijournal{Bioinformatics}, 34(13):i105–i114, 2018. PMCID: PMC5505026
 
 %  \item Benedict Paten, Jordan M Eizenga, Yohei M Rosen, Adam M Novak, \textsc{Erik Garrison}, and Glenn Hickey. \emph{Superbubbles, ultrabubbles, and cacti}. \hijournal{Journal of Computational Biology}, 25(7):649–663, 2018. PMCID: PMC6067107
 
-  \item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949
+  \item \textsc{Erik Garrison}, Jouni Sirén, Adam M Novak, Glenn Hickey, Jordan M Eizenga, Eric T Dawson, William Jones, Shilpa Garg, Charles Markello, Michael F Lin, et al. \emph{Variation graph toolkit improves read mapping by representing genetic variation in the reference}. \hijournal{Nature Biotechnology}, 36(9):875–879, 2018. PMCID: PMC6126949.
 
-  \item Jouni Sir{\'e}n, Jean Monlong, Xian Chang, Adam Novak, Jordan Eizenga, Charles Markello, Jonas Sibbesen, Glenn Hickey, et al. \emph{Pangenomics enables genotyping of known structural variants in 5202 diverse genomes}. \hijournal{Science}, 374(6574):abg887, 2021. PMCID: PMC34914532
+  \item Jouni Sir{\'e}n, Jean Monlong, Xian Chang, Adam Novak, Jordan Eizenga, Charles Markello, Jonas Sibbesen, Glenn Hickey, et al. \emph{Pangenomics enables genotyping of known structural variants in 5202 diverse genomes}. \hijournal{Science}, 374(6574):abg887, 2021. PMCID: PMC34914532.
 
   \end{enumerate}
 
@@ -211,13 +217,14 @@ In further work, I am exploring the development of linked data techniques that a
 
   \begin{enumerate}
 
-    \item Jordan M. Eizenga, Adam M. Novak, Jonas A. Sibbesen, Simon Heumos, Ali Ghaffaari, Glenn Hickey, Xian Chang, Josiah D Seaman, Robin Rounthwaite, Jana Ebler, Mikko Rautiainen, Shilpa Garg, Benedict Paten, Tobias Marschall, Jouni Sirén, and \textsc{Erik Garrison}. \emph{Pangenome graphs.} \hijournal{Annual review of genomics and human genetics} 21:139-162, 2020. PMCID: PMC7850124
+    \item Jordan M. Eizenga, Adam M. Novak, Jonas A. Sibbesen, Simon Heumos, Ali Ghaffaari, Glenn Hickey, Xian Chang, Josiah D Seaman, Robin Rounthwaite, Jana Ebler, Mikko Rautiainen, Shilpa Garg, Benedict Paten, Tobias Marschall, Jouni Sirén, and \textsc{Erik Garrison}. \emph{Pangenome graphs.} \hijournal{Annual review of genomics and human genetics} 21:139-162, 2020. PMCID: PMC7850124.
 
-  \item Jordan M. Eizenga, Adam M. Novak, Emily Kobayashi, Flavia Villani, Cecilia Cisar, Simon Heumos, Glenn Hickey, Vincenza Colonna, Benedict Paten, and \textsc{Erik Garrison}. \emph{Efficient dynamic variation graphs.} \hijournal{Bioinformatics} 36(21):5139-5144, 2021. PMCID: PMC8006571
+  \item Jordan M. Eizenga, Adam M. Novak, Emily Kobayashi, Flavia Villani, Cecilia Cisar, Simon Heumos, Glenn Hickey, Vincenza Colonna, Benedict Paten, and \textsc{Erik Garrison}. \emph{Efficient dynamic variation graphs.} \hijournal{Bioinformatics} 36(21):5139-5144, 2021. PMCID: PMC8006571.
 
-  \item Andrea Guarracino, Simon Heumos, Sven Nahnsen, Pjotr Prins, and \textsc{Erik Garrison}. \emph{ODGI: understanding pangenome graphs.} \hijournal{bioRxiv} 2021.
+  \item Andrea Guarracino, Simon Heumos, Sven Nahnsen, Pjotr Prins, and \textsc{Erik Garrison}. \emph{ODGI: understanding pangenome graphs}. \emph{Bioinformatics},  Volume 38, Issue 13, 1 July 2022. PMCID: PMC9237687.
 
-  \item \textsc{Erik Garrison}, and Andrea Guarracino. \emph{Unbiased pangenome graphs.} \hijournal{bioRxiv} 2022.
+  \item \textsc{Erik Garrison} and Andrea Guarracino. \emph{Unbiased pangenome graphs}. \emph{Bioinformatics}, Volume 39, Issue 1, January 2023. PMCID: PMC9805579
+
   \end{enumerate}
 
 \end{enumerate}
